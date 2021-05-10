@@ -52,7 +52,7 @@ document.getElementById("multiplier").addEventListener("click", () => {
         clickerModifier = clickerModifier + 1; // moet zo om op te slagen clickerModifier += 1;
         cookies = Math.floor(cookies - cost);
         let costRounded = Math.floor(cost * modifier);
-        multiplierElement.innerHTML = `x${clickerModifier}/ cookies ${costRounded}`;
+        multiplierElement.innerHTML = `Cookies x${clickerModifier + 1}/  ${costRounded} Cookies`; // +1 cause base modifier is 0 so might be confusing for user
         cost = upgradeCost(cost);
 
 
@@ -72,7 +72,7 @@ document.getElementById("auto-click").addEventListener("click", () => {
         }, 1000)
         cookies = Math.floor(cookies - autoCost);
         let autoCostRounded = Math.floor(autoCost * modifier);
-        autoclickElement.innerHTML = `x${clickerModifier}/ cookies ${autoCostRounded}`;
+        autoclickElement.innerHTML = `Auto x${clickerModifier + 1}/ Cookies ${autoCostRounded}`;
         autoCost = upgradeAutoCost(autoCost);
     }
 });
