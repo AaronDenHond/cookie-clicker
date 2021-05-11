@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Rancho&display=swap" rel="stylesheet"> 
 
 </head>
+
 <body>
-<div>
- <label id="cookies"> Cookies:</label>   
-</div>     
-<label id="counter"> Clicks: </label>
-<div></div>
- <button id="run">Click Me!</button>
- <button id="multiplier">Cookie Multiplier/ 20 Cookies</button> 
- <button id="auto-click">Buy Autoclick/ 50 Cookies</button>  
-</div>
-<script src="script.js"></script>    
+    <div class="container">
+
+        <div class="counterTitle">
+          Cookie Clicker!  
+        </div>
+        <div class="cookiesCounter">
+            <label id="cookies"> Cookies:</label>
+        </div>
+
+        <div class="clicksCounter">
+            <label id="counter"> Clicks: </label>
+        </div>
+        <div class="image">
+            <img src="img/cookie-removebg-preview.png" id="run"></img>
+        </div>
+        <div class="upgrades">
+            <button id="multiplier">Cookie Multiplier/ 20 Cookies</button>
+            <button id="auto-click">Buy Autoclick/ 20 Cookies</button>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+    <script src="script.js"></script>
 </body>
+
 </html>

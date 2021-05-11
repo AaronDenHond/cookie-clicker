@@ -26,7 +26,7 @@ let cost = 20
 const modifier = 1.5;
 
 //initial auto click upgrade cost, uses same modifier for now
-let autoCost = 50;
+let autoCost = 20;
 
 // EventListeners on buttons to get the functionalities we want on click
 
@@ -35,7 +35,7 @@ button.addEventListener("click", () => {
     clicksLabel.innerHTML = "Clicks:" + " " + clicks;
 
     cookies += 1 + clickerModifier; // niet clicks bij tellen
-    
+
     cookiesLabel.innerHTML = "Cookies:" + " " + cookies;
 
 });

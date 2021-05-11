@@ -1,5 +1,13 @@
 # cookie-cutter
 
+UPDATE 11/5/2021
+
+First version of CSS. Title, overview of clicks and cookies (aka currency).
+Appropriate chocolate themed colors and font. Cookie image as a clicker instead of a button.
+
+
+UPDATE 10/5/2021
+
 BeCode Antwerp Giertz exercise making a cookie clicker.
 
 HTML,CSS and JS were used for this project.
@@ -28,6 +36,5 @@ const upgradeCost = (cost) => {
 
 in button.EventListener :
 cost = upgradeCost(cost);
-
-
 https://aarondenhond.github.io/cookie-cutter/
+

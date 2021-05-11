@@ -1,0 +1,95 @@
+* {
+    /* sterretje betekent alles*/
+    padding: 0;
+    margin: 0;
+    font-family: 'Rancho', cursive;
+
+}
+
+
+body {
+
+   height: 100%;
+   overflow: hidden; 
+}
+
+
+
+.container {
+    background-image: linear-gradient(#974621, #bb6943);
+    float: left;  /* optional? */
+    box-sizing: border-box;
+    height: 100%;
+    width: 60%;
+    display: inline-block; /* optional? */
+    padding-top: 25px;
+    padding-bottom: 350px;
+    padding-left: 10px;
+    text-align: center;
+    border: solid 10px #070606;
+    border-radius: 5px;
+    margin-left: 250px;
+    
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+.image:hover {}
+
+
+
+#multiplier {
+
+    margin-right: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+#auto-click {
+
+    margin-right: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+.cookiesCounter {
+
+    border: dashed 3px black;
+    border-radius: 1em;
+    margin-bottom: 20px;
+   width: 20%; 
+   margin-left: auto;
+   margin-right: auto;
+   background-color: burlywood;
+   margin-top: 50px;
+   font-size: 20px;
+}
+    
+
+.clicksCounter {
+
+    border: dashed 3px black;
+    border-radius: 1em;
+    font-size: 20px;
+    
+   width: 20%; 
+   margin-left: auto;
+   margin-right: auto;
+   background-color: burlywood;
+}
+
+.counterTitle {
+    border: solid 5px black;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(241, 138, 100);
+    font-size: 30px;
+}
