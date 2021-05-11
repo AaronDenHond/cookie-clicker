@@ -26,7 +26,12 @@ let cost = 20
 const modifier = 1.5;
 
 //initial auto click upgrade cost, uses same modifier for now
-let autoCost = 20;
+let autoCost = 30;
+
+//var for bordercolor  funds for upgrade1
+let noCookiesAlertBonus = document.getElementById("noCookiesBonus");
+////var for bordercolor  funds for upgrade2
+let noCookiesAlertAuto = document.getElementById("noCookiesAuto");
 
 // EventListeners on buttons to get the functionalities we want on click
 
@@ -37,18 +42,33 @@ button.addEventListener("click", () => {
     cookies += 1 + clickerModifier; // niet clicks bij tellen
 
     cookiesLabel.innerHTML = "Cookies:" + " " + cookies;
+// if elses for diff possibilities of border color
+    if (cookies >= cost && cookies >= autoCost) {
+        noCookiesAlertBonus.style.borderColor = "green";
+        noCookiesAlertAuto.style.borderColor = "green";
+    }
+
+    else if (cookies < cost && cookies < autoCost) {
+        noCookiesAlertBonus.style.borderColor = "red";
+        noCookiesAlertAuto.style.borderColor = "red";
+    }
+    else if (cookies > cost && cookies < autoCost) {
+        noCookiesAlertBonus.style.borderColor = "green";
+        noCookiesAlertAuto.style.borderColor = "red";
+    }    
+    
+    else if (cookies < cost && cookies > autoCost){
+        noCookiesAlertBonus.style.borderColor = "red";
+        noCookiesAlertAuto.style.borderColor = "green";
+    }
+
 
 });
 
 
 document.getElementById("multiplier").addEventListener("click", () => {
 
-    if (cookies < cost) {
-        alert("Not enough credits!");
-
-    }
-
-    else {
+    if (cookies > cost) {          //check if enough cookies not other way around
         clickerModifier = clickerModifier + 1; // moet zo om op te slagen clickerModifier += 1;
         cookies = Math.floor(cookies - cost);
         let costRounded = Math.floor(cost * modifier);
@@ -57,16 +77,15 @@ document.getElementById("multiplier").addEventListener("click", () => {
 
 
     }
+
+
 });
 
 
 
 document.getElementById("auto-click").addEventListener("click", () => {
 
-    if (cookies < autoCost) {
-        alert("Not enough credits!");
-    }
-    else {
+    if (cookies > autoCost) {
         setInterval(function () {
             button.click()
         }, 1000)
@@ -74,7 +93,10 @@ document.getElementById("auto-click").addEventListener("click", () => {
         let autoCostRounded = Math.floor(autoCost * modifier);
         autoclickElement.innerHTML = `Auto x${clickerModifier + 1}/ Cookies ${autoCostRounded}`;
         autoCost = upgradeAutoCost(autoCost);
+        noCookiesAlert.innerHTML = "";
+        noCookiesAlert.innerHTML = "Not enough cookies!";
     }
+
 });
 
 
