@@ -33,7 +33,12 @@ let noCookiesAlertBonus = document.getElementById("noCookiesBonus");
 ////var for bordercolor  funds for upgrade2
 let noCookiesAlertAuto = document.getElementById("noCookiesAuto");
 
+//wally gif milestone var
+let milestone = 30;
+
+ 
 // EventListeners on buttons to get the functionalities we want on click
+
 
 button.addEventListener("click", () => {
     clicks += 1; // clicks = clicks + 1
@@ -52,23 +57,27 @@ button.addEventListener("click", () => {
         noCookiesAlertBonus.style.borderColor = "red";
         noCookiesAlertAuto.style.borderColor = "red";
     }
-    else if (cookies > cost && cookies < autoCost) {
+    else if (cookies >= cost && cookies < autoCost) {
         noCookiesAlertBonus.style.borderColor = "green";
         noCookiesAlertAuto.style.borderColor = "red";
     }    
     
-    else if (cookies < cost && cookies > autoCost){
+    else if (cookies < cost && cookies >= autoCost){
         noCookiesAlertBonus.style.borderColor = "red";
         noCookiesAlertAuto.style.borderColor = "green";
     }
-
-
+     if (cookies % 30 == 0){
+     wallyWawCalc(30);
+    }
+     
+        
 });
+
 
 
 document.getElementById("multiplier").addEventListener("click", () => {
 
-    if (cookies > cost) {          //check if enough cookies not other way around
+    if (cookies >= cost) {          //check if enough cookies not other way around
         clickerModifier = clickerModifier + 1; // moet zo om op te slagen clickerModifier += 1;
         cookies = Math.floor(cookies - cost);
         let costRounded = Math.floor(cost * modifier);
@@ -85,7 +94,7 @@ document.getElementById("multiplier").addEventListener("click", () => {
 
 document.getElementById("auto-click").addEventListener("click", () => {
 
-    if (cookies > autoCost) {
+    if (cookies >= autoCost) {
         setInterval(function () {
             button.click()
         }, 1000)
@@ -114,4 +123,22 @@ const upgradeAutoCost = (autoCost) => {
     const modifier = 1.5; // modifier const always 1.5
     return autoCost * modifier;
 }
+
+//function to check if milestone
+ 
+ const wallyWawCalc = (milestone) => {   //function wallyWawCalc (milestone){} // andere milestone want hier parameter
+  const wallyModifier = 3;
+  let eddyWaw = document.getElementById("eddyWawImg");
+   if (milestone == 30) {
+       eddyWaw.src = "img/eddyGif.gif";
+   }
+
+   else {
+       eddyWaw.src = "";
+   }
+   return milestone * wallyModifier;
+   
+}
+    
+
 
