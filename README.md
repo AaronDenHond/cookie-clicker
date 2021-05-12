@@ -50,9 +50,11 @@ Cookies, clicks, buttons,...
 
 
 
+UPDATE 13/5/2011
 
+Added eddy wally functionality,
+finalized CSS.
 
-6) Finalize the CSS.
 UPDATE 11/5/2021
 
 First version of CSS. Title, overview of clicks and cookies (aka currency).
