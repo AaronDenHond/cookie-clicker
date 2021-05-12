@@ -50,27 +50,30 @@ button.addEventListener("click", () => {
 
     cookiesLabel.innerHTML = "Cookies:" + " " + cookies;
     // if elses for diff possibilities of border color
+    let multiplierBorder = document.getElementById("multiplier");
+    let autoClick = document.getElementById("auto-click");
     if (cookies >= cost && cookies >= autoCost) {
-        noCookiesAlertBonus.style.borderColor = "green";
-        noCookiesAlertAuto.style.borderColor = "green";
+
+        multiplierBorder.style.borderColor = "green";
+        autoClick.style.borderColor = "green";
     }
 
     else if (cookies < cost && cookies < autoCost) {
-        noCookiesAlertBonus.style.borderColor = "red";
-        noCookiesAlertAuto.style.borderColor = "red";
+        multiplierBorder.style.borderColor = "red";
+        autoClick.style.borderColor = "red";
     }
     else if (cookies >= cost && cookies < autoCost) {
-        noCookiesAlertBonus.style.borderColor = "green";
-        noCookiesAlertAuto.style.borderColor = "red";
+        multiplierBorder.style.borderColor = "green";
+        autoClick.style.borderColor = "red";
     }
 
     else if (cookies < cost && cookies >= autoCost) {
-        noCookiesAlertBonus.style.borderColor = "red";
-        noCookiesAlertAuto.style.borderColor = "green";
+        multiplierBorder.style.borderColor = "red";
+        autoClick.style.borderColor = "green";
     }
     // check if multitude of 30 (30,60,90,...) via modulo. Modulo checks remainder, so if remainder is 0...
     if (cookies % 30 == 0) {
-        
+
         // allowed to click eddy when we call him with wallyCalc, he shows up
         wallyWawCalc(30);
         isEddyClickable = true;
@@ -95,7 +98,7 @@ document.getElementById("eddyWaw").addEventListener("click", () => {
         cookies += 30; // add cookies
         document.getElementById("eddyWawImg").src = "";
         cookiesLabel.innerHTML = "Cookies:" + " " + cookies; // DISPLAY cookies
-        
+
         //set isEddyClickable to false so we cant spam click, after 1 click on Eddy we set to false. SET eddyClick FALSE 2
     }
 });
@@ -108,7 +111,7 @@ document.getElementById("multiplier").addEventListener("click", () => {
         clickerModifier = clickerModifier + 1; // moet zo om op te slagen clickerModifier += 1;
         cookies = Math.floor(cookies - cost);
         let costRounded = Math.floor(cost * modifier);
-        multiplierElement.innerHTML = `Cookies x${clickerModifier + 1}/  ${costRounded} Cookies`; // +1 cause base modifier is 0 so might be confusing for user
+        multiplierElement.innerHTML = `Buy Cookies x${clickerModifier + 1}/  ${costRounded} Cookies`; // +1 cause base modifier is 0 so might be confusing for user
         cost = upgradeCost(cost);
 
 
@@ -120,22 +123,22 @@ document.getElementById("multiplier").addEventListener("click", () => {
 
 
 document.getElementById("auto-click").addEventListener("click", () => {
-     
+
     if (cookies >= autoCost) {
-        clickerModifier++;
+
         setInterval(function () {
-            cookies += clickerModifier;
+            cookies += 1 + clickerModifier;
             cookiesLabel.innerHTML = "Cookies:" + " " + cookies;
-             
+
         }, 1000)
         cookies = Math.floor(cookies - autoCost);
         let autoCostRounded = Math.floor(autoCost * modifier);
-        autoclickElement.innerHTML = `Auto x${clickerModifier + 1}/ Cookies ${autoCostRounded}`;
+        autoclickElement.innerHTML = `Buy Auto x${clickerModifier + 1}/ Cookies ${autoCostRounded}`;
         autoCost = upgradeAutoCost(autoCost);
-       
-        
+
+
     }
-    
+
 });
 
 
