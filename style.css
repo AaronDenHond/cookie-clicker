@@ -1,27 +1,19 @@
 * {
     /* sterretje betekent alles*/
-    padding: 0;
-    margin: 0;
     font-family: 'Rancho', cursive;
-
 }
-
 
 body {
-
-   height: 100%;
-  /*  overflow: hidden;  */
+    height: 100%;
+    /*  overflow: hidden;  */
 }
-
-
 
 .container {
     background-image: linear-gradient(#974621, #bb6943);
-      /* optional? */
     box-sizing: border-box;
     height: 100%;
     width: 60%;
-    display: inline-block; /* optional? */
+    display: inline-block;
     padding-top: 25px;
     padding-bottom: 350px;
     padding-left: 10px;
@@ -29,68 +21,73 @@ body {
     border: solid 10px #070606;
     border-radius: 5px;
     margin-left: 350px;
-    
 }
 
 .image {
     display: flex;
     justify-content: center;
-    
     height: 400px;
     margin-top: 50px;
     margin-bottom: 50px;
+    
 }
 
 .image:hover {
-
     cursor: pointer;
     transform: scale(1.1);
 }
 
-
-
 #multiplier {
-
     margin-left: auto;
     margin-right: auto;
     padding-left: auto;
-    padding-right:auto;
-
+    padding-right: auto;
     font-size: 30px;
 }
 
 #auto-click {
-
-    margin-right: 20px;
-    padding-right: 10px;
-    padding-left: 10px;
+    
+  
     font-size: 30px;
 }
 
 .cookiesCounter {
-
     border: dashed 3px black;
     border-radius: 1em;
     margin-bottom: 20px;
-   width: 20%; 
-   margin-left: auto;
-   margin-right: auto;
-   background-color: burlywood;
-   margin-top: 50px;
-   font-size: 30px;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: burlywood;
+    margin-top: 50px;
+    font-size: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
-    
 
 .clicksCounter {
-
     border: dashed 3px black;
     border-radius: 1em;
     font-size: 30px;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: burlywood;
     
-   width: 20%; 
-   margin-left: auto;
-   margin-right: auto;
-   background-color: burlywood;
+}
+.clicksPerSec {
+    border: dashed 3px black;
+    border-radius: 1em;
+    font-size: 30px;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: burlywood;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom:20px;
+    
 }
 
 .counterTitle {
@@ -100,6 +97,7 @@ body {
     margin-right: auto;
     background-color: rgb(241, 138, 100);
     font-size: 50px;
+    margin-top: 50px;
 }
 
 .noCookiesAlertBonus {

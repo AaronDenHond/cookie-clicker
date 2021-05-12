@@ -35,8 +35,10 @@ let noCookiesAlertAuto = document.getElementById("noCookiesAuto");
 
 //wally gif milestone var
 let milestone = 30;
+let isEddyClickable = false; // we need to check if Eddy is allowed to be clicked, if we dont we can spamclick for points even when he doesnt show.
 
- 
+
+
 // EventListeners on buttons to get the functionalities we want on click
 
 
@@ -47,7 +49,7 @@ button.addEventListener("click", () => {
     cookies += 1 + clickerModifier; // niet clicks bij tellen
 
     cookiesLabel.innerHTML = "Cookies:" + " " + cookies;
-// if elses for diff possibilities of border color
+    // if elses for diff possibilities of border color
     if (cookies >= cost && cookies >= autoCost) {
         noCookiesAlertBonus.style.borderColor = "green";
         noCookiesAlertAuto.style.borderColor = "green";
@@ -60,17 +62,42 @@ button.addEventListener("click", () => {
     else if (cookies >= cost && cookies < autoCost) {
         noCookiesAlertBonus.style.borderColor = "green";
         noCookiesAlertAuto.style.borderColor = "red";
-    }    
-    
-    else if (cookies < cost && cookies >= autoCost){
+    }
+
+    else if (cookies < cost && cookies >= autoCost) {
         noCookiesAlertBonus.style.borderColor = "red";
         noCookiesAlertAuto.style.borderColor = "green";
     }
-     if (cookies % 30 == 0){
-     wallyWawCalc(30);
-    }
-     
+    // check if multitude of 30 (30,60,90,...) via modulo. Modulo checks remainder, so if remainder is 0...
+    if (cookies % 30 == 0) {
         
+        // allowed to click eddy when we call him with wallyCalc, he shows up
+        wallyWawCalc(30);
+        isEddyClickable = true;
+        //we create a setTimeout function, AFTER 2 seconds everything in the function body gets executed.
+        setTimeout(function () {
+            document.getElementById("eddyWawImg").src = "";
+            isEddyClickable = false;
+            // after 2 secs src string is cleared and clicking no longer allowed to click eddy AFTER 2 secs CALLBACK. Set eddyClick FALSE 1
+        }, 2000)
+
+
+
+    }
+
+
+
+
+});
+//here we click eddy, check if ALLOWED to click
+document.getElementById("eddyWaw").addEventListener("click", () => {
+    if (isEddyClickable) {
+        cookies += 30; // add cookies
+        document.getElementById("eddyWawImg").src = "";
+        cookiesLabel.innerHTML = "Cookies:" + " " + cookies; // DISPLAY cookies
+        
+        //set isEddyClickable to false so we cant spam click, after 1 click on Eddy we set to false. SET eddyClick FALSE 2
+    }
 });
 
 
@@ -93,19 +120,22 @@ document.getElementById("multiplier").addEventListener("click", () => {
 
 
 document.getElementById("auto-click").addEventListener("click", () => {
-
+     
     if (cookies >= autoCost) {
+        clickerModifier++;
         setInterval(function () {
-            button.click()
+            cookies += clickerModifier;
+            cookiesLabel.innerHTML = "Cookies:" + " " + cookies;
+             
         }, 1000)
         cookies = Math.floor(cookies - autoCost);
         let autoCostRounded = Math.floor(autoCost * modifier);
         autoclickElement.innerHTML = `Auto x${clickerModifier + 1}/ Cookies ${autoCostRounded}`;
         autoCost = upgradeAutoCost(autoCost);
-        noCookiesAlert.innerHTML = "";
-        noCookiesAlert.innerHTML = "Not enough cookies!";
+       
+        
     }
-
+    
 });
 
 
@@ -125,20 +155,18 @@ const upgradeAutoCost = (autoCost) => {
 }
 
 //function to check if milestone
- 
- const wallyWawCalc = (milestone) => {   //function wallyWawCalc (milestone){} // andere milestone want hier parameter
-  const wallyModifier = 3;
-  let eddyWaw = document.getElementById("eddyWawImg");
-   if (milestone == 30) {
-       eddyWaw.src = "img/eddyGif.gif";
-   }
 
-   else {
-       eddyWaw.src = "";
-   }
-   return milestone * wallyModifier;
-   
+const wallyWawCalc = (milestone) => {   //function wallyWawCalc (milestone){} // andere milestone want hier parameter
+    const wallyModifier = 3;
+    let eddyWaw = document.getElementById("eddyWawImg");
+    if (milestone == 30) {
+        eddyWaw.src = "img/eddyGif.gif";
+    }
+
+
+    return milestone * wallyModifier;
+
 }
-    
+
 
 
