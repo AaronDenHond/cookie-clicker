@@ -42,7 +42,7 @@ Cookies, clicks, buttons,...
 
 6. Finalize the CSS.
 
-### UPDATE 13/5/2011
+**UPDATE 13/5/2011**
 
 Added eddy wally functionality,
 finalized CSS.
@@ -85,4 +85,4 @@ const upgradeCost = (cost) => {
 
 in button.EventListener :
 cost = upgradeCost(cost);
-https://aarondenhond.github.io/cookie-cutter/
+https://aarondenhond.github.io/cookie-clicker/
