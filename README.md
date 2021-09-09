@@ -1,5 +1,7 @@
 # cookie-cutter
 
+https://aarondenhond.github.io/cookie-clicker/
+
 Project : creating a browser-based cookie clicker game
 
 Core functionality (core tasks/features of the program)
@@ -85,4 +87,3 @@ const upgradeCost = (cost) => {
 
 in button.EventListener :
 cost = upgradeCost(cost);
-https://aarondenhond.github.io/cookie-clicker/
